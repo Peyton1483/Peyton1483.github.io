@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riesel Car Detailing — Mobile Detailing in Riesel, TX</title>
+<meta name="description" content="Riesel Car Detailing brings professional mobile car wash and detail service to your driveway in Riesel, TX and surrounding areas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#152A3E;
+    --steel:#25405C;
+    --blue:#3E6690;
+    --sky:#6FA8D8;
+    --silver:#C7CDD3;
+    --silver-line:#D7DCE1;
+    --paper:#FAFBFC;
+    --white:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--navy);
+    background:var(--paper);
+    line-height:1.6;
+  }
+  h1,h2,h3,.display{
+    font-family:'Barlow Condensed',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.02em;
+    font-weight:700;
+    color:var(--navy);
+    line-height:1.05;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  ul{list-style:none;}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px;}
+  :focus-visible{outline:3px solid var(--sky); outline-offset:3px;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,251,252,0.94);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--silver-line);
+  }
+  nav.wrap{display:flex; align-items:center; justify-content:space-between; height:76px;}
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand-mark{width:34px; height:34px; flex-shrink:0;}
+  .brand-text{font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:20px; letter-spacing:0.03em; color:var(--navy);}
+  .brand-text span{display:block; font-family:'Inter',sans-serif; font-weight:500; font-size:10px; letter-spacing:0.18em; color:var(--blue); text-transform:uppercase;}
+  .nav-links{display:flex; gap:36px; font-size:14px; font-weight:600; letter-spacing:0.02em;}
+  .nav-links a{padding:6px 2px; border-bottom:2px solid transparent; transition:border-color .2s ease, color .2s ease;}
+  .nav-links a:hover{border-color:var(--sky); color:var(--blue);}
+  .nav-cta{
+    background:var(--navy); color:var(--white); padding:11px 22px; border-radius:3px;
+    font-size:14px; font-weight:600; letter-spacing:0.02em; transition:background .2s ease; white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--blue);}
+  .menu-btn{display:none; background:none; border:none; cursor:pointer; padding:8px;}
+  .menu-btn svg{width:26px; height:26px;}
+  .mobile-panel{display:none; flex-direction:column; padding:8px 28px 22px; border-top:1px solid var(--silver-line); background:var(--paper);}
+  .mobile-panel.open{display:flex;}
+  .mobile-panel a{padding:12px 0; font-size:15px; font-weight:600; border-bottom:1px solid var(--silver-line);}
+
+  /* ---------- SECTION LABELS ---------- */
+  .section{padding:96px 0;}
+  .section-head{max-width:640px; margin:0 auto 56px; text-align:center;}
+  .section-head .eyebrow{justify-content:center;}
+  .section-head h2{font-size:clamp(30px,4vw,44px);}
+  .section-head p{color:var(--steel); font-size:16px; margin-top:14px;}
+  .section-alt{background:var(--white); border-top:1px solid var(--silver-line); border-bottom:1px solid var(--silver-line);}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:12px; font-weight:700; letter-spacing:0.16em; color:var(--blue); text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{content:""; width:22px; height:2px; background:var(--sky); display:inline-block;}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative; overflow:hidden; border-bottom:1px solid var(--silver-line);}
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; align-items:center; gap:40px;
+    padding:88px 28px 96px;
+  }
+  .hero h1{font-size:clamp(40px,5.5vw,66px); max-width:11ch;}
+  .hero h1 em{font-style:normal; color:var(--blue);}
+  .hero p.lede{
+    font-size:18px; color:var(--steel); max-width:46ch; margin:22px 0 32px; font-weight:400;
+  }
+  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--navy); color:var(--white); padding:15px 28px; border-radius:3px;
+    font-weight:600; font-size:15px; letter-spacing:0.02em; transition:background .2s ease;
+    display:inline-block; border:1px solid var(--navy); text-align:center;
+  }
+  .btn-primary:hover{background:var(--blue); border-color:var(--blue);}
+  .btn-secondary{
+    padding:15px 28px; border-radius:3px; border:1px solid var(--silver);
+    font-weight:600; font-size:15px; letter-spacing:0.02em; color:var(--navy);
+    transition:border-color .2s ease, background .2s ease; text-align:center; display:inline-block;
+  }
+  .btn-secondary:hover{border-color:var(--blue); background:var(--white);}
+  .hero-stats{display:flex; gap:34px; margin-top:44px; flex-wrap:wrap;}
+  .hero-stats div{border-left:2px solid var(--silver-line); padding-left:14px;}
+  .hero-stats b{display:block; font-family:'Barlow Condensed',sans-serif; font-size:26px; color:var(--navy);}
+  .hero-stats span{font-size:12px; color:var(--blue); letter-spacing:0.04em;}
+  .hero-art{position:relative; display:flex; align-items:center; justify-content:center;}
+  .hero-art svg{width:100%; height:auto; max-width:420px;}
+
+  /* ---------- SERVICES: work-order tickets ---------- */
+  .tickets{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  .ticket{
+    background:var(--white); border:1px solid var(--silver-line); border-radius:6px;
+    position:relative; display:flex; flex-direction:column;
+  }
+  .ticket.featured{border-color:var(--blue); box-shadow:0 18px 40px -22px rgba(21,42,62,0.35);}
+  .ticket-head{padding:26px 26px 20px; border-bottom:2px dashed var(--silver-line); position:relative;}
+  .ticket-head::before, .ticket-head::after{
+    content:""; position:absolute; bottom:-9px; width:18px; height:18px; background:var(--paper);
+    border:1px solid var(--silver-line); border-radius:50%;
+  }
+  .ticket-head::before{left:-10px;}
+  .ticket-head::after{right:-10px;}
+  .ticket-no{font-size:11px; letter-spacing:0.14em; color:var(--blue); font-weight:700; text-transform:uppercase;}
+  .ticket-head h3{font-size:26px; margin-top:6px;}
+  .ticket-price{font-family:'Barlow Condensed',sans-serif; font-size:38px; font-weight:700; color:var(--navy); margin-top:10px;}
+  .ticket-price span{font-family:'Inter',sans-serif; font-size:13px; font-weight:500; color:var(--blue); text-transform:none; letter-spacing:0;}
+  .ticket-body{padding:22px 26px 28px; flex:1; display:flex; flex-direction:column;}
+  .ticket-body ul{flex:1;}
+  .ticket-body li{
+    display:flex; gap:10px; align-items:flex-start; font-size:14.5px; color:var(--steel); padding:7px 0;
+  }
+  .ticket-body li svg{width:16px; height:16px; flex-shrink:0; margin-top:3px; color:var(--blue);}
+  .ticket-time{font-size:12px; color:var(--blue); font-weight:600; letter-spacing:0.04em; margin-top:16px; text-transform:uppercase;}
+  .ticket .btn-primary, .ticket .btn-secondary{width:100%; margin-top:18px;}
+  .badge-pop{
+    position:absolute; top:-13px; right:24px; background:var(--navy); color:var(--white);
+    font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+    padding:6px 14px; border-radius:20px;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:64px; align-items:center;}
+  .about-art{
+    aspect-ratio:4/5; border-radius:8px; background:linear-gradient(160deg,var(--navy),var(--steel));
+    position:relative; overflow:hidden; display:flex; align-items:center; justify-content:center;
+  }
+  .about-art svg{width:58%; opacity:0.95;}
+  .about-art .plate{
+    position:absolute; bottom:24px; left:24px; right:24px; background:rgba(250,251,252,0.1);
+    border:1px solid rgba(255,255,255,0.25); border-radius:4px; padding:14px 18px;
+    color:var(--white); font-size:12px; letter-spacing:0.1em; text-transform:uppercase; font-weight:600;
+  }
+  .about-copy h2{font-size:clamp(28px,3.6vw,38px); margin-bottom:18px;}
+  .about-copy p{color:var(--steel); font-size:16px; margin-bottom:16px; max-width:52ch;}
+  .trust-list{margin-top:26px; display:grid; gap:14px;}
+  .trust-list li{display:flex; gap:12px; align-items:flex-start; font-size:14.5px; color:var(--navy); font-weight:500;}
+  .trust-list svg{width:20px; height:20px; color:var(--blue); flex-shrink:0; margin-top:1px;}
+
+  /* ---------- SERVICE AREA ---------- */
+  .area-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;}
+  .area-list{display:flex; flex-wrap:wrap; gap:10px; margin-top:22px;}
+  .area-chip{
+    border:1px solid var(--silver-line); background:var(--paper); padding:9px 16px; border-radius:20px;
+    font-size:13.5px; font-weight:600; color:var(--steel);
+  }
+  .area-map{
+    border:1px solid var(--silver-line); border-radius:8px; background:var(--paper);
+    aspect-ratio:1/1; position:relative; overflow:hidden;
+  }
+  .area-map svg{width:100%; height:100%;}
+
+  /* ---------- GALLERY placeholder ---------- */
+  .gallery-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .gallery-slot{
+    aspect-ratio:4/3; border:1.5px dashed var(--silver); border-radius:6px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
+    color:var(--blue); background:var(--paper); font-size:13px; font-weight:600; text-align:center; padding:16px;
+  }
+  .gallery-slot svg{width:30px; height:30px; opacity:0.7;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px;}
+  .contact-info h2{font-size:clamp(28px,3.6vw,38px); margin-bottom:16px;}
+  .contact-info p{color:var(--steel); margin-bottom:28px; max-width:44ch;}
+  .info-row{display:flex; gap:14px; align-items:flex-start; padding:14px 0; border-top:1px solid var(--silver-line);}
+  .info-row:last-child{border-bottom:1px solid var(--silver-line);}
+  .info-row svg{width:20px; height:20px; color:var(--blue); flex-shrink:0; margin-top:2px;}
+  .info-row b{display:block; font-size:14px; color:var(--navy);}
+  .info-row span{font-size:13.5px; color:var(--steel);}
+
+  form{background:var(--paper); border:1px solid var(--silver-line); border-radius:8px; padding:34px;}
+  .field{margin-bottom:18px;}
+  .field label{display:block; font-size:12.5px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--blue); margin-bottom:7px;}
+  .field input, .field select, .field textarea{
+    width:100%; border:1px solid var(--silver-line); border-radius:4px; padding:12px 14px;
+    font-family:'Inter',sans-serif; font-size:14.5px; color:var(--navy); background:var(--white);
+    transition:border-color .2s ease;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--blue); outline:none;}
+  .field textarea{resize:vertical; min-height:90px;}
+  .form-note{font-size:12.5px; color:var(--blue); margin-top:14px; text-align:center;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--navy); color:var(--silver); padding:56px 0 28px;}
+  .footer-grid{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:36px; padding-bottom:36px; border-bottom:1px solid rgba(255,255,255,0.12);}
+  .footer-brand{display:flex; align-items:center; gap:12px; max-width:280px;}
+  .footer-brand .brand-text{color:var(--white);}
+  .footer-brand .brand-text span{color:var(--sky);}
+  .footer-links{display:flex; gap:44px; flex-wrap:wrap;}
+  .footer-col h4{font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--sky); margin-bottom:14px; font-family:'Inter',sans-serif; font-weight:700;}
+  .footer-col a{display:block; font-size:14px; color:var(--silver); padding:4px 0; transition:color .2s ease;}
+  .footer-col a:hover{color:var(--white);}
+  .footer-bottom{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; padding-top:24px; font-size:12.5px; color:#8FA3B8;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){
+    .nav-links{display:none;}
+    .nav-cta{display:none;}
+    .menu-btn{display:block;}
+    .hero-grid{grid-template-columns:1fr; padding:56px 24px 64px;}
+    .hero-art{order:-1; margin-bottom:8px;}
+    .hero-art svg{max-width:260px;}
+    .about-grid, .area-grid, .contact-grid{grid-template-columns:1fr;}
+    .about-art{aspect-ratio:16/9;}
+    .tickets{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:1fr 1fr;}
+    .section{padding:64px 0;}
+    .footer-grid{flex-direction:column;}
+  }
+  @media (max-width:520px){
+    .gallery-grid{grid-template-columns:1fr;}
+    .hero-stats div{padding-left:10px;}
+    .hero-ctas a{flex:1;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a class="brand" href="#top">
+      <svg class="brand-mark" viewBox="0 0 400 400" aria-hidden="true">
+        <circle cx="200" cy="200" r="196" fill="#D7DCE1"/>
+        <circle cx="200" cy="200" r="182" fill="#FFFFFF"/>
+        <g transform="translate(200,205)" fill="none" stroke="#25405C" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M-95,25 L-78,25 L-58,-14 C-50,-27 -36,-35 -21,-35 L21,-35 C36,-35 50,-27 58,-14 L78,25 L95,25 L95,45 L78,45"/>
+          <path d="M-95,25 L-95,45 L-78,45"/>
+          <line x1="-58" y1="45" x2="58" y2="45"/>
+        </g>
+        <g fill="#FFFFFF" stroke="#25405C" stroke-width="16">
+          <circle cx="-58" cy="235" r="17" transform="translate(200,0)"/>
+          <circle cx="58" cy="235" r="17" transform="translate(200,0)"/>
+        </g>
+      </svg>
+      <span class="brand-text">RIESEL<span>Car Detailing</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#area">Service Area</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="#contact">Book a Detail</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </nav>
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#area">Service Area</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid wrap">
+      <div>
+        <div class="eyebrow">Mobile Detailing · Riesel, TX</div>
+        <h1>We bring the <em>shine</em> to your driveway.</h1>
+        <p class="lede">Riesel Car Detailing is a local, family-backed mobile detailing crew serving Riesel and the surrounding area. We come to you — no drop-off, no waiting around.</p>
+        <div class="hero-ctas">
+          <a class="btn-primary" href="#contact">Book a Detail</a>
+          <a class="btn-secondary" href="#services">See Packages &amp; Pricing</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>100%</b><span>Mobile — we come to you</span></div>
+          <div><b>3</b><span>Detail packages</span></div>
+          <div><b>Riesel</b><span>+ surrounding towns</span></div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <svg viewBox="0 0 500 400" aria-hidden="true">
+          <defs>
+            <linearGradient id="hbody" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#3E6690"/>
+              <stop offset="55%" stop-color="#25405C"/>
+              <stop offset="100%" stop-color="#152A3E"/>
+            </linearGradient>
+            <linearGradient id="hglass" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#DCE6EE"/>
+              <stop offset="100%" stop-color="#AEC1D2"/>
+            </linearGradient>
+            <linearGradient id="hrim" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#E6EAEE"/>
+              <stop offset="100%" stop-color="#9AA6B0"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="250" cy="330" rx="170" ry="14" fill="#152A3E" opacity="0.1"/>
+          <g stroke="#D7DCE1" stroke-width="4" opacity="0.6">
+            <line x1="40" y1="80" x2="140" y2="30"/>
+            <line x1="70" y1="110" x2="150" y2="70"/>
+          </g>
+          <g transform="translate(250,255) scale(1.55)">
+            <path d="M-118,32 C-118,20 -110,12 -98,12 L-84,12 L-70,-20 C-63,-36 -47,-46 -30,-46 L34,-46 C51,-46 66,-37 74,-22 L92,12 L108,12 C120,12 128,20 128,32 L128,50 C128,58 122,64 114,64 L100,64 C100,50 89,39 75,39 C61,39 50,50 50,64 L-50,64 C-50,50 -61,39 -75,39 C-89,39 -100,50 -100,64 L-110,64 C-118,64 -124,58 -124,50 Z" fill="url(#hbody)"/>
+            <path d="M-70,-19 C-63,-35 -47,-45 -30,-45 L34,-45 C50,-45 65,-37 73,-22" fill="none" stroke="#5C86AC" stroke-width="3" opacity="0.7"/>
+            <path d="M-58,10 L-45,-16 C-40,-25 -30,-31 -19,-31 L-6,-31 L-6,10 Z" fill="url(#hglass)"/>
+            <path d="M2,-31 L27,-31 C38,-31 48,-25 54,-16 L64,10 L2,10 Z" fill="url(#hglass)"/>
+            <line x1="-2" y1="-31" x2="-2" y2="10" stroke="#152A3E" stroke-width="3"/>
+            <line x1="-2" y1="12" x2="-2" y2="63" stroke="#152A3E" stroke-width="2" opacity="0.5"/>
+            <path d="M-95,20 L-40,-2 L-20,-2 L-70,26 Z" fill="#FFFFFF" opacity="0.18"/>
+          </g>
+          <g transform="translate(250,323)">
+            <g transform="translate(-116,0)">
+              <circle r="30" fill="#152A3E"/><circle r="16" fill="url(#hrim)"/>
+              <g stroke="#6B7680" stroke-width="2.2"><line x1="0" y1="-11" x2="0" y2="11"/><line x1="-11" y1="0" x2="11" y2="0"/><line x1="-8" y1="-8" x2="8" y2="8"/><line x1="-8" y1="8" x2="8" y2="-8"/></g>
+            </g>
+            <g transform="translate(116,0)">
+              <circle r="30" fill="#152A3E"/><circle r="16" fill="url(#hrim)"/>
+              <g stroke="#6B7680" stroke-width="2.2"><line x1="0" y1="-11" x2="0" y2="11"/><line x1="-11" y1="0" x2="11" y2="0"/><line x1="-8" y1="-8" x2="8" y2="8"/><line x1="-8" y1="8" x2="8" y2="-8"/></g>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Packages &amp; Pricing</div>
+        <h2>Pick your detail</h2>
+        <p>Every package is written up like a work order, so you know exactly what's included before we start.</p>
+      </div>
+      <div class="tickets">
+
+        <div class="ticket">
+          <div class="ticket-head">
+            <div class="ticket-no">Order No. 01</div>
+            <h3>Basic Wash</h3>
+            <div class="ticket-price">$30<span> starting</span></div>
+          </div>
+          <div class="ticket-body">
+            <ul>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,11 8,15 16,6"/></svg>Hand wash &amp; rinse</li>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,11 8,15 16,6"/></svg>Wheels &amp; tires scrubbed</li>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,11 8,15 16,6"/></svg>Windows cleaned, in &amp; out</li>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,11 8,15 16,6"/></svg>Quick interior vacuum</li>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,11 8,15 16,6"/></svg>Spray wax finish</li>
+            </ul>
+            <div class="ticket-time">Est. time: 30–45 min</div>
+            <a class="btn-secondary" href="#contact">Book This</a>
+          </div>
+        </div>
+
+        <div class="ticket featured">
+          <span class="badge-pop">Most Popular</span>
+          <div class="ticket-head">
+            <div class="ticket-no">Order No. 02</div>
+            <h3>Wash + Interior</h3>
+            <div class="ticket-price">$75<span> starting</span></div>
+          </div>
+          <div class="ticket-body">
+            <ul>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,11 8,15 16,6"/></svg>Everything in Basic Wash</li>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,11 8,15 16,6"/></svg>Full interior deep vacuum</li>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,11 8,15 16,6"/></svg>Dash, console &amp; door panels wiped</li>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,11 8,15 16,6"/></svg>Interior glass &amp; mirrors</li>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,11 8,15 16,6"/></svg>Tire shine finish</li>
+            </ul>
+            <div class="ticket-time">Est. time: 1.5–2 hrs</div>
+            <a class="btn-primary" href="#contact">Book This</a>
+          </div>
+        </div>
+
+        <div class="ticket">
+          <div class="ticket-head">
+            <div class="ticket-no">Order No. 03</div>
+            <h3>Full Detail</h3>
+            <div class="ticket-price">$130<span> starting</span></div>
+          </div>
+          <div class="ticket-body">
+            <ul>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,11 8,15 16,6"/></svg>Everything in Wash + Interior</li>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,11 8,15 16,6"/></svg>Clay bar treatment</li>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,11 8,15 16,6"/></svg>Hand wax or sealant</li>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,11 8,15 16,6"/></svg>Carpet &amp; upholstery shampoo</li>
+              <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,11 8,15 16,6"/></svg>Trim restored, vents detailed</li>
+            </ul>
+            <div class="ticket-time">Est. time: 2.5–4 hrs</div>
+            <a class="btn-secondary" href="#contact">Book This</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section section-alt" id="about">
+    <div class="wrap about-grid">
+      <div class="about-art">
+        <svg viewBox="0 0 400 400" aria-hidden="true">
+          <g transform="translate(200,180)" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+            <path d="M-95,25 L-78,25 L-58,-14 C-50,-27 -36,-35 -21,-35 L21,-35 C36,-35 50,-27 58,-14 L78,25 L95,25 L95,45 L78,45"/>
+            <path d="M-95,25 L-95,45 L-78,45"/>
+            <line x1="-58" y1="45" x2="58" y2="45"/>
+          </g>
+          <g fill="#152A3E" stroke="#FFFFFF" stroke-width="9" opacity="0.95">
+            <circle cx="-58" cy="215" r="18" transform="translate(200,0)"/>
+            <circle cx="58" cy="215" r="18" transform="translate(200,0)"/>
+          </g>
+        </svg>
+        <div class="plate">Riesel, TX · Est. 2026</div>
+      </div>
+      <div class="about-copy">
+        <div class="eyebrow">About Us</div>
+        <h2>Local, hands-on, and here for the long run.</h2>
+        <p>Riesel Car Detailing was started by a couple of Riesel teenagers who take pride in their work and want to build something real in their own hometown. We treat every car like it's ours — because our name is on it.</p>
+        <p>We're mobile, so we come straight to your driveway. No drop-off, no rideshare home, no waiting around at a shop.</p>
+        <ul class="trust-list">
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2 3 5v5c0 4.5 3 7.5 7 8.5 4-1 7-4 7-8.5V5z"/></svg>Parent contact available for all bookings</li>
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7.5"/><path d="M10 5.5v5l3.5 2"/></svg>Reliable, on-time scheduling</li>
+          <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h4l1.5-3L11 15l1.5-6H17"/></svg>Before-photos taken on every job</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="section" id="area">
+    <div class="wrap area-grid">
+      <div>
+        <div class="eyebrow">Where We Work</div>
+        <h2>Serving Riesel &amp; the surrounding area</h2>
+        <p style="color:var(--steel); margin-top:14px; max-width:44ch;">Based in Riesel, we take bookings throughout the surrounding McLennan County area. Not sure if you're in range? Reach out and ask.</p>
+        <div class="area-list">
+          <span class="area-chip">Riesel</span>
+          <span class="area-chip">Waco</span>
+          <span class="area-chip">Mart</span>
+          <span class="area-chip">Lorena</span>
+          <span class="area-chip">Bruceville-Eddy</span>
+          <span class="area-chip">Robinson</span>
+        </div>
+      </div>
+      <div class="area-map">
+        <svg viewBox="0 0 300 300" aria-hidden="true">
+          <rect width="300" height="300" fill="#FAFBFC"/>
+          <g stroke="#D7DCE1" stroke-width="1">
+            <line x1="0" y1="50" x2="300" y2="50"/><line x1="0" y1="100" x2="300" y2="100"/>
+            <line x1="0" y1="150" x2="300" y2="150"/><line x1="0" y1="200" x2="300" y2="200"/>
+            <line x1="0" y1="250" x2="300" y2="250"/>
+            <line x1="50" y1="0" x2="50" y2="300"/><line x1="100" y1="0" x2="100" y2="300"/>
+            <line x1="150" y1="0" x2="150" y2="300"/><line x1="200" y1="0" x2="200" y2="300"/>
+            <line x1="250" y1="0" x2="250" y2="300"/>
+          </g>
+          <circle cx="150" cy="150" r="90" fill="none" stroke="#6FA8D8" stroke-width="2" stroke-dasharray="6 6"/>
+          <circle cx="150" cy="150" r="10" fill="#152A3E"/>
+          <circle cx="150" cy="150" r="16" fill="none" stroke="#152A3E" stroke-width="2"/>
+          <text x="150" y="185" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="16" fill="#152A3E" letter-spacing="1">RIESEL, TX</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section section-alt" id="gallery">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Our Work</div>
+        <h2>Before &amp; after</h2>
+        <p>Photos from real jobs go here as we complete them — check back soon.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-slot">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2.5"/><path d="M14 15l3-3 4 4"/></svg>
+          Photo coming soon
+        </div>
+        <div class="gallery-slot">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2.5"/><path d="M14 15l3-3 4 4"/></svg>
+          Photo coming soon
+        </div>
+        <div class="gallery-slot">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2.5"/><path d="M14 15l3-3 4 4"/></svg>
+          Photo coming soon
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-info">
+        <div class="eyebrow">Get In Touch</div>
+        <h2>Book your detail</h2>
+        <p>Fill out the form and we'll text or call to confirm a time. You can also reach us directly:</p>
+
+        <div class="info-row">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 5.5A1.5 1.5 0 0 1 4.5 4h2.6a1 1 0 0 1 .95.68l1 3a1 1 0 0 1-.27 1.05L7.4 10.1a10 10 0 0 0 4.5 4.5l1.37-1.38a1 1 0 0 1 1.05-.27l3 1a1 1 0 0 1 .68.95v2.6a1.5 1.5 0 0 1-1.5 1.5A13.5 13.5 0 0 1 3 5.5z"/></svg>
+          <div><b>Phone / Text</b><span>(254) 555-0142 — add your real number</span></div>
+        </div>
+        <div class="info-row">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="4.5" width="15" height="11" rx="1.5"/><path d="M3 5.5 10 11l7-5.5"/></svg>
+          <div><b>Email</b><span>rieselcardetailing@email.com — add your real email</span></div>
+        </div>
+        <div class="info-row">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 2 3 5v5c0 4.5 3 7.5 7 8.5 4-1 7-4 7-8.5V5z"/></svg>
+          <div><b>Instagram</b><span>@rieselcardetailing — add your real handle</span></div>
+        </div>
+        <div class="info-row">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10" cy="10" r="7.5"/><path d="M10 5.5v5l3.5 2"/></svg>
+          <div><b>Hours</b><span>Weekends, and weekday afternoons by request</span></div>
+        </div>
+      </div>
+
+      <form onsubmit="event.preventDefault(); alert('Thanks! This form is a placeholder — connect it to an email service like Formspree so submissions actually reach you.');">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" type="text" required placeholder="Your name">
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input id="phone" type="tel" required placeholder="(254) 555-0123">
+        </div>
+        <div class="field">
+          <label for="package">Package</label>
+          <select id="package">
+            <option>Basic Wash — $30</option>
+            <option>Wash + Interior — $75</option>
+            <option>Full Detail — $130</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="address">Address / Location</label>
+          <input id="address" type="text" required placeholder="Where should we meet you?">
+        </div>
+        <div class="field">
+          <label for="notes">Notes</label>
+          <textarea id="notes" placeholder="Vehicle type, preferred date/time, anything we should know"></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%; border:none; cursor:pointer;" type="submit">Request Booking</button>
+        <div class="form-note">We'll confirm by phone or text within 24 hours.</div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <svg class="brand-mark" viewBox="0 0 400 400" aria-hidden="true">
+          <circle cx="200" cy="200" r="196" fill="#25405C"/>
+          <circle cx="200" cy="200" r="182" fill="#152A3E"/>
+          <g transform="translate(200,205)" fill="none" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M-95,25 L-78,25 L-58,-14 C-50,-27 -36,-35 -21,-35 L21,-35 C36,-35 50,-27 58,-14 L78,25 L95,25 L95,45 L78,45"/>
+            <path d="M-95,25 L-95,45 L-78,45"/>
+            <line x1="-58" y1="45" x2="58" y2="45"/>
+          </g>
+          <g fill="#152A3E" stroke="#FFFFFF" stroke-width="16">
+            <circle cx="-58" cy="235" r="17" transform="translate(200,0)"/>
+            <circle cx="58" cy="235" r="17" transform="translate(200,0)"/>
+          </g>
+        </svg>
+        <span class="brand-text">RIESEL<span>Car Detailing</span></span>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Site</h4>
+          <a href="#services">Services</a>
+          <a href="#about">About</a>
+          <a href="#area">Service Area</a>
+          <a href="#gallery">Gallery</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="#contact">Book a Detail</a>
+          <a href="tel:+12545550142">(254) 555-0142</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Riesel Car Detailing. Serving Riesel, TX.</span>
+      <span>Mobile detailing by appointment.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobilePanel = document.getElementById('mobilePanel');
+  menuBtn.addEventListener('click', () => {
+    const isOpen = mobilePanel.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  mobilePanel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobilePanel.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }));
+</script>
+
+</body>
+</html>
